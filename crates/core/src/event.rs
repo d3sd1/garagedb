@@ -174,7 +174,8 @@ pub struct Event {
     pub replica: ReplicaId,
     pub seq: u64,
     pub actor: String,
-    #[serde(flatten)]
+    /// Anidado a propósito: `flatten` colisionaría el `id` del evento con
+    /// los `id` de MissionCreate/KitUpsert/LocationUpsert.
     pub body: EventBody,
     /// hex(ed25519) sobre los bytes canónicos del evento con `sig:""`.
     pub sig: String,

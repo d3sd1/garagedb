@@ -113,23 +113,30 @@ pub fn mission_check(state: &State, id: &MissionId) -> Result<CheckReport, Missi
     })
 }
 
-/// Única vía de obtener un `MissionState{Ready}`. Err = bloqueantes ausentes.
-pub fn try_mark_ready(
-    state: &State,
-    id: &MissionId,
-) -> Result<EventBody, Vec<MissingLine>> {
-    let report = match mission_check(state, id) {
-        Ok(r) => r,
-        Err(_) => return Err(vec![]),
-    };
+/// Resultado del gate de salida.
+#[derive(Debug)]
+pub enum ReadyOutcome {
+    /// Único constructor legítimo de `MissionState{Ready}`.
+    Ready(EventBody),
+    Blocked(Vec<MissingLine>),
+}
+
+/// Única vía de obtener un `MissionState{Ready}`.
+pub fn try_mark_ready(state: &State, id: &MissionId) -> Result<ReadyOutcome, MissionError> {
+    let report = mission_check(state, id)?;
     if report.ready {
-        Ok(EventBody::MissionState { id: id.clone(), state: MissionState::Ready })
+        Ok(ReadyOutcome::Ready(EventBody::MissionState {
+            id: id.clone(),
+            state: MissionState::Ready,
+        }))
     } else {
-        Err(report
-            .missing
-            .into_iter()
-            .filter(|l| l.crit == Criticality::Blocking)
-            .collect())
+        Ok(ReadyOutcome::Blocked(
+            report
+                .missing
+                .into_iter()
+                .filter(|l| l.crit == Criticality::Blocking)
+                .collect(),
+        ))
     }
 }
 
@@ -294,7 +301,10 @@ mod tests {
         assert_eq!(r.missing.len(), 2);
         // bloqueante primero
         assert_eq!(r.missing[0].crit, Criticality::Blocking);
-        assert!(matches!(try_mark_ready(&s, &id), Err(blockers) if blockers.len() == 1));
+        assert!(matches!(
+            try_mark_ready(&s, &id),
+            Ok(ReadyOutcome::Blocked(blockers)) if blockers.len() == 1
+        ));
     }
 
     #[test]
@@ -307,7 +317,7 @@ mod tests {
         assert_eq!(r.missing[0].sku, Sku::new("BRIDA-200"));
         assert!(matches!(
             try_mark_ready(&s, &id),
-            Ok(EventBody::MissionState { state: MissionState::Ready, .. })
+            Ok(ReadyOutcome::Ready(EventBody::MissionState { state: MissionState::Ready, .. }))
         ));
     }
 
