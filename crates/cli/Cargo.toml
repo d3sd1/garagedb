@@ -12,6 +12,7 @@ garagedb-core = { path = "../core" }
 garagedb-server = { path = "../server" }
 serde_json = { workspace = true }
 anyhow = { workspace = true }
+chrono = { workspace = true }
 clap = { version = "4", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
 
