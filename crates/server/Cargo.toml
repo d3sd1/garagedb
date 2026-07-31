@@ -1,0 +1,20 @@
+[package]
+name = "garagedb-server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+garagedb-core = { path = "../core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+qrcode = "0.14"
+local-ip-address = "0.6"
+
+[dev-dependencies]
+tower = { version = "0.4", features = ["util"] }
+http-body-util = "0.1"
+tempfile = "3"
