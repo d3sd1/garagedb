@@ -13,4 +13,5 @@ pub mod ids;
 pub mod keys;
 pub mod mission;
 pub mod quantity;
+pub mod search;
 pub mod store;

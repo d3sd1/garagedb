@@ -72,6 +72,10 @@ pub struct State {
     #[serde(skip)]
     pub proposals: Vec<Event>,
     pub anomalies: Vec<String>,
+    /// Timestamps (ms) de eventos de uso por sku (Move/Count/KitLoad).
+    /// Alimenta el ranking del buscador. Derivado, fuera del estado canónico.
+    #[serde(skip)]
+    pub usage: BTreeMap<Sku, Vec<u64>>,
 }
 
 impl State {
@@ -116,6 +120,15 @@ pub fn fold(events: &[Event]) -> State {
 }
 
 fn apply(s: &mut State, ev: &Event) {
+    // registro de uso para el ranking de búsqueda
+    match &ev.body {
+        EventBody::Move { sku, .. }
+        | EventBody::Count { sku, .. }
+        | EventBody::KitLoad { sku, .. } => {
+            s.usage.entry(sku.clone()).or_default().push(ev.hlc.ts_ms);
+        }
+        _ => {}
+    }
     match &ev.body {
         EventBody::Ingest { sku, name, category, unit, loc, qty } => {
             s.items.entry(sku.clone()).or_insert(ItemMeta {

@@ -75,38 +75,21 @@ async fn stock(
     AxState(app): AxState<Arc<AppState>>,
     Query(query): Query<StockQuery>,
 ) -> ApiResult {
-    let q = query.q.to_lowercase();
+    let now_ms = garagedb_core::hlc::wall_now_ms();
     let rows = app.with_state(|s| {
-        s.stock
-            .iter()
-            .filter(|((sku, loc), _)| {
-                if q.is_empty() {
-                    return true;
-                }
-                let name = s
-                    .items
-                    .get(sku)
-                    .map(|i| i.name.to_lowercase())
-                    .unwrap_or_default();
-                let aliases = s
-                    .locations
-                    .get(loc)
-                    .map(|l| l.aliases.join(" ").to_lowercase())
-                    .unwrap_or_default();
-                sku.as_str().to_lowercase().contains(&q)
-                    || loc.as_str().to_lowercase().contains(&q)
-                    || name.contains(&q)
-                    || aliases.contains(&q)
-            })
-            .map(|((sku, loc), cell)| {
+        garagedb_core::search::search(s, &query.q, now_ms, 50)
+            .into_iter()
+            .map(|hit| {
+                let cell = &s.stock[&(hit.sku.clone(), hit.loc.clone())];
                 json!({
-                    "sku": sku,
-                    "name": s.items.get(sku).map(|i| i.name.clone()).unwrap_or_default(),
-                    "unit": s.items.get(sku).map(|i| i.unit.clone()).unwrap_or_default(),
-                    "loc": loc,
+                    "sku": hit.sku,
+                    "name": s.items.get(&hit.sku).map(|i| i.name.clone()).unwrap_or_default(),
+                    "unit": s.items.get(&hit.sku).map(|i| i.unit.clone()).unwrap_or_default(),
+                    "loc": hit.loc,
                     "qty": cell.qty,
                     "last_verified": cell.last_verified,
                     "stale": cell.stale,
+                    "score": (hit.score * 100.0).round() / 100.0,
                 })
             })
             .collect::<Vec<_>>()

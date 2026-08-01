@@ -80,7 +80,16 @@ function qtyLabel(q) {
 
 async function loadStock() {
   const q = $('#q').value.trim();
-  const rows = await api('/api/stock?q=' + encodeURIComponent(q));
+  if (qAbort) qAbort.abort();
+  qAbort = new AbortController();
+  let rows;
+  try {
+    const res = await fetch('/api/stock?q=' + encodeURIComponent(q), { signal: qAbort.signal });
+    rows = await res.json();
+  } catch (e) {
+    if (e.name === 'AbortError') return; // llegó una pulsación más nueva
+    throw e;
+  }
   const html = rows
     .map(
       (r, i) => `
@@ -123,10 +132,12 @@ function moveN(sku, loc) {
 }
 window.moveN = moveN;
 
+// type-ahead: respuesta inmediata con cancelación de peticiones en vuelo
 let qTimer;
+let qAbort = null;
 $('#q').addEventListener('input', () => {
   clearTimeout(qTimer);
-  qTimer = setTimeout(loadStock, 250);
+  qTimer = setTimeout(loadStock, 120);
 });
 
 // ---------- ingesta ----------
