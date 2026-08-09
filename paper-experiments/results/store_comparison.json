@@ -1,0 +1,78 @@
+{
+  "stores": {
+    "300": {
+      "garagedb_ms": [
+        21.4,
+        1.3
+      ],
+      "sqlite_insert_ms": [
+        3.0,
+        0.5
+      ],
+      "sqlite_fold_ms": [
+        0.7,
+        0.1
+      ]
+    },
+    "1000": {
+      "garagedb_ms": [
+        70.7,
+        6.0
+      ],
+      "sqlite_insert_ms": [
+        3.9,
+        0.8
+      ],
+      "sqlite_fold_ms": [
+        1.2,
+        0.1
+      ]
+    },
+    "3000": {
+      "garagedb_ms": [
+        211.4,
+        17.3
+      ],
+      "sqlite_insert_ms": [
+        6.0,
+        1.0
+      ],
+      "sqlite_fold_ms": [
+        2.3,
+        0.1
+      ]
+    }
+  },
+  "automerge": {
+    "300": {
+      "am_build_ms": [
+        37.4,
+        4.5
+      ],
+      "am_merge_both_ms": [
+        24.1,
+        2.9
+      ]
+    },
+    "1000": {
+      "am_build_ms": [
+        118.5,
+        6.0
+      ],
+      "am_merge_both_ms": [
+        72.9,
+        15.4
+      ]
+    },
+    "3000": {
+      "am_build_ms": [
+        458.4,
+        69.7
+      ],
+      "am_merge_both_ms": [
+        234.0,
+        32.6
+      ]
+    }
+  }
+}

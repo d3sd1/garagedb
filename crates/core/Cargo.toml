@@ -16,3 +16,5 @@ hex = "0.4"
 [dev-dependencies]
 proptest = "1"
 tempfile = "3"
+rusqlite = { version = "0.31", features = ["bundled"] }
+automerge = "0.10.0"

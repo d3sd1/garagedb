@@ -1,0 +1,15 @@
+{"n":300,"rep":0,"garagedb_ms":21.859,"sqlite_insert_ms":2.837,"sqlite_fold_ms":0.500}
+{"n":300,"rep":1,"garagedb_ms":19.259,"sqlite_insert_ms":2.818,"sqlite_fold_ms":0.826}
+{"n":300,"rep":2,"garagedb_ms":21.102,"sqlite_insert_ms":2.860,"sqlite_fold_ms":0.735}
+{"n":300,"rep":3,"garagedb_ms":22.903,"sqlite_insert_ms":3.832,"sqlite_fold_ms":0.622}
+{"n":300,"rep":4,"garagedb_ms":21.652,"sqlite_insert_ms":2.629,"sqlite_fold_ms":0.815}
+{"n":1000,"rep":0,"garagedb_ms":64.139,"sqlite_insert_ms":3.301,"sqlite_fold_ms":1.136}
+{"n":1000,"rep":1,"garagedb_ms":66.017,"sqlite_insert_ms":3.191,"sqlite_fold_ms":1.249}
+{"n":1000,"rep":2,"garagedb_ms":71.240,"sqlite_insert_ms":3.522,"sqlite_fold_ms":1.248}
+{"n":1000,"rep":3,"garagedb_ms":72.849,"sqlite_insert_ms":4.445,"sqlite_fold_ms":1.100}
+{"n":1000,"rep":4,"garagedb_ms":79.436,"sqlite_insert_ms":5.021,"sqlite_fold_ms":1.345}
+{"n":3000,"rep":0,"garagedb_ms":201.629,"sqlite_insert_ms":6.639,"sqlite_fold_ms":2.478}
+{"n":3000,"rep":1,"garagedb_ms":207.901,"sqlite_insert_ms":5.612,"sqlite_fold_ms":2.114}
+{"n":3000,"rep":2,"garagedb_ms":214.606,"sqlite_insert_ms":7.441,"sqlite_fold_ms":2.364}
+{"n":3000,"rep":3,"garagedb_ms":239.058,"sqlite_insert_ms":4.974,"sqlite_fold_ms":2.428}
+{"n":3000,"rep":4,"garagedb_ms":193.608,"sqlite_insert_ms":5.192,"sqlite_fold_ms":2.279}

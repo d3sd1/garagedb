@@ -1,0 +1,245 @@
+{
+  "alpha_sweep": {
+    "0.05": {
+      "croston": {
+        "mase_mean": 0.949
+      },
+      "sba": {
+        "mase_mean": 0.943
+      },
+      "tsb": {
+        "mase_mean": 0.93
+      },
+      "order": [
+        "tsb",
+        "sba",
+        "croston"
+      ]
+    },
+    "0.1": {
+      "croston": {
+        "mase_mean": 0.945
+      },
+      "sba": {
+        "mase_mean": 0.934
+      },
+      "tsb": {
+        "mase_mean": 0.938
+      },
+      "order": [
+        "sba",
+        "tsb",
+        "croston"
+      ]
+    },
+    "0.15": {
+      "croston": {
+        "mase_mean": 0.954
+      },
+      "sba": {
+        "mase_mean": 0.937
+      },
+      "tsb": {
+        "mase_mean": 0.948
+      },
+      "order": [
+        "sba",
+        "tsb",
+        "croston"
+      ]
+    },
+    "0.2": {
+      "croston": {
+        "mase_mean": 0.966
+      },
+      "sba": {
+        "mase_mean": 0.942
+      },
+      "tsb": {
+        "mase_mean": 0.957
+      },
+      "order": [
+        "sba",
+        "tsb",
+        "croston"
+      ]
+    }
+  },
+  "paired_tests": {
+    "n_series": 4500,
+    "friedman_chi2": 1230.2,
+    "friedman_p": 2.036152465440748e-266,
+    "wilcoxon_holm": {
+      "sba_vs_croston": {
+        "p_holm": 0.0,
+        "median_diff_mase": -0.0143
+      },
+      "sba_vs_mean": {
+        "p_holm": 1.2747051527651539e-13,
+        "median_diff_mase": 0.008
+      },
+      "sba_vs_tsb": {
+        "p_holm": 2.7590497539197786e-12,
+        "median_diff_mase": -0.0069
+      },
+      "croston_vs_tsb": {
+        "p_holm": 0.008435872434747391,
+        "median_diff_mase": -0.0007
+      }
+    }
+  },
+  "policy": {
+    "lead_time_weeks": 2,
+    "review_weeks": 1,
+    "curves": {
+      "croston": [
+        {
+          "mult": 0.6,
+          "fill_rate": 0.4991,
+          "avg_on_hand": 3.51
+        },
+        {
+          "mult": 0.8,
+          "fill_rate": 0.6082,
+          "avg_on_hand": 5.15
+        },
+        {
+          "mult": 1.0,
+          "fill_rate": 0.684,
+          "avg_on_hand": 7.07
+        },
+        {
+          "mult": 1.25,
+          "fill_rate": 0.7498,
+          "avg_on_hand": 9.67
+        },
+        {
+          "mult": 1.5,
+          "fill_rate": 0.798,
+          "avg_on_hand": 12.39
+        },
+        {
+          "mult": 2.0,
+          "fill_rate": 0.8607,
+          "avg_on_hand": 18.06
+        },
+        {
+          "mult": 2.5,
+          "fill_rate": 0.8958,
+          "avg_on_hand": 23.92
+        }
+      ],
+      "sba": [
+        {
+          "mult": 0.6,
+          "fill_rate": 0.4819,
+          "avg_on_hand": 3.31
+        },
+        {
+          "mult": 0.8,
+          "fill_rate": 0.5915,
+          "avg_on_hand": 4.84
+        },
+        {
+          "mult": 1.0,
+          "fill_rate": 0.6696,
+          "avg_on_hand": 6.63
+        },
+        {
+          "mult": 1.25,
+          "fill_rate": 0.7373,
+          "avg_on_hand": 9.08
+        },
+        {
+          "mult": 1.5,
+          "fill_rate": 0.7869,
+          "avg_on_hand": 11.66
+        },
+        {
+          "mult": 2.0,
+          "fill_rate": 0.8525,
+          "avg_on_hand": 17.04
+        },
+        {
+          "mult": 2.5,
+          "fill_rate": 0.89,
+          "avg_on_hand": 22.63
+        }
+      ],
+      "tsb": [
+        {
+          "mult": 0.6,
+          "fill_rate": 0.5088,
+          "avg_on_hand": 3.76
+        },
+        {
+          "mult": 0.8,
+          "fill_rate": 0.6177,
+          "avg_on_hand": 5.54
+        },
+        {
+          "mult": 1.0,
+          "fill_rate": 0.6935,
+          "avg_on_hand": 7.58
+        },
+        {
+          "mult": 1.25,
+          "fill_rate": 0.7594,
+          "avg_on_hand": 10.36
+        },
+        {
+          "mult": 1.5,
+          "fill_rate": 0.8071,
+          "avg_on_hand": 13.28
+        },
+        {
+          "mult": 2.0,
+          "fill_rate": 0.8683,
+          "avg_on_hand": 19.37
+        },
+        {
+          "mult": 2.5,
+          "fill_rate": 0.9026,
+          "avg_on_hand": 25.7
+        }
+      ],
+      "mean": [
+        {
+          "mult": 0.6,
+          "fill_rate": 0.49,
+          "avg_on_hand": 3.19
+        },
+        {
+          "mult": 0.8,
+          "fill_rate": 0.5996,
+          "avg_on_hand": 4.7
+        },
+        {
+          "mult": 1.0,
+          "fill_rate": 0.676,
+          "avg_on_hand": 6.46
+        },
+        {
+          "mult": 1.25,
+          "fill_rate": 0.742,
+          "avg_on_hand": 8.87
+        },
+        {
+          "mult": 1.5,
+          "fill_rate": 0.7907,
+          "avg_on_hand": 11.38
+        },
+        {
+          "mult": 2.0,
+          "fill_rate": 0.8553,
+          "avg_on_hand": 16.59
+        },
+        {
+          "mult": 2.5,
+          "fill_rate": 0.8915,
+          "avg_on_hand": 21.96
+        }
+      ]
+    }
+  }
+}

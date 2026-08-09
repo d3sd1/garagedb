@@ -29,7 +29,7 @@ tp = [r["t_parse_only_ms_mean"] for r in rep]
 tp_s = [r["t_parse_only_ms_std"] for r in rep]
 
 fig, ax = plt.subplots()
-ax.errorbar(n, tv, yerr=tv_s, marker="o", label="fold + ed25519 verify")
+ax.errorbar(n, tv, yerr=tv_s, marker="o", label="fold + Ed25519 verify")
 ax.errorbar(n, tp, yerr=tp_s, marker="s", label="fold, parse-only")
 ax.set_xscale("log")
 ax.set_yscale("log")
