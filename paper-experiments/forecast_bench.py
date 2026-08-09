@@ -97,10 +97,22 @@ def naive(y: np.ndarray) -> np.ndarray:
     return out
 
 
+def insample_mean(y: np.ndarray) -> np.ndarray:
+    """Benchmark exigente para demanda intermitente: pronóstico constante a la
+    media del tramo de entrenamiento (Hyndman & Koehler-style reference)."""
+    out = np.zeros(len(y))
+    out[TRAIN:] = y[:TRAIN].mean()
+    # dentro de train: media expansiva (evita mirar el futuro)
+    for t in range(1, TRAIN):
+        out[t] = y[:t].mean()
+    return out
+
+
 METHODS = {
     "croston": lambda y: croston(y, variant="croston"),
     "sba": lambda y: croston(y, variant="sba"),
     "tsb": tsb,
+    "mean": insample_mean,
     "naive": naive,
     "ma8": moving_mean,
 }
@@ -168,10 +180,14 @@ def main() -> None:
     fig, ax = plt.subplots()
     width = 0.15
     x = np.arange(len(quads))
-    for i, m in enumerate(["croston", "sba", "tsb", "ma8", "naive"]):
+    labels = {"croston": "CROSTON", "sba": "SBA", "tsb": "TSB",
+              "mean": "MEAN", "ma8": "MA(8)", "naive": "NAIVE"}
+    methods = ["croston", "sba", "tsb", "mean", "ma8", "naive"]
+    width = 0.13
+    for i, m in enumerate(methods):
         means = [agg["by_quadrant"][q][m]["mase_mean"] for q in quads]
         stds = [agg["by_quadrant"][q][m]["mase_std"] for q in quads]
-        ax.bar(x + (i - 2) * width, means, width, yerr=stds, capsize=2, label=m.upper() if m != "ma8" else "MA(8)")
+        ax.bar(x + (i - 2.5) * width, means, width, yerr=stds, capsize=2, label=labels[m])
     ax.set_xticks(x, [q.capitalize() for q in quads])
     ax.set_ylabel("MASE (test, 26 weeks)")
     ax.legend(ncols=3, fontsize=8)

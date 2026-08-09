@@ -55,6 +55,10 @@ def main() -> None:
         run_bench()
     aggregate()
     subprocess.run([sys.executable, str(HERE / "generate_figures.py")], check=True)
+    subprocess.run([sys.executable, str(HERE / "forecast_bench.py")], check=True)
+    if os.environ.get("DATALOGGER_DIR"):
+        subprocess.run([sys.executable, str(HERE / "datalogger_analysis.py")], check=True)
+        subprocess.run([sys.executable, str(HERE / "datalogger_figure.py")], check=True)
 
 
 if __name__ == "__main__":

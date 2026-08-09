@@ -30,6 +30,11 @@
         "mase_std": 0.017,
         "bias_mean": 0.025
       },
+      "mean": {
+        "mase_mean": 0.719,
+        "mase_std": 0.014,
+        "bias_mean": 0.041
+      },
       "naive": {
         "mase_mean": 1.025,
         "mase_std": 0.025,
@@ -56,6 +61,11 @@
         "mase_mean": 0.964,
         "mase_std": 0.01,
         "bias_mean": -0.044
+      },
+      "mean": {
+        "mase_mean": 0.955,
+        "mase_std": 0.007,
+        "bias_mean": -0.072
       },
       "naive": {
         "mase_mean": 1.066,
@@ -84,6 +94,11 @@
         "mase_std": 0.022,
         "bias_mean": 0.335
       },
+      "mean": {
+        "mase_mean": 0.765,
+        "mase_std": 0.024,
+        "bias_mean": 0.363
+      },
       "naive": {
         "mase_mean": 1.038,
         "mase_std": 0.028,
@@ -111,6 +126,11 @@
         "mase_std": 0.046,
         "bias_mean": -0.031
       },
+      "mean": {
+        "mase_mean": 0.992,
+        "mase_std": 0.04,
+        "bias_mean": -0.021
+      },
       "naive": {
         "mase_mean": 1.204,
         "mase_std": 0.067,
@@ -137,6 +157,11 @@
         "mase_mean": 0.938,
         "mase_std": 0.023,
         "bias_mean": -0.002
+      },
+      "mean": {
+        "mase_mean": 0.919,
+        "mase_std": 0.02,
+        "bias_mean": -0.003
       },
       "naive": {
         "mase_mean": 1.113,

@@ -1,16 +1,25 @@
 {
   "experiment": "replication-microbench",
-  "description": "Convergencia del log GarageDB: fold+verify vs parse-only, tamaño de almacén, para N eventos divergentes entre 2 réplicas (transporte folder).",
-  "bench_source": "D:/garagedb/crates/core/examples/bench.rs",
-  "garagedb_commit": "see repo D:/garagedb",
-  "sizes": [50, 100, 300, 1000, 3000],
+  "description": "Convergencia del log GarageDB: fold+verify vs parse-only, tama\u00c3\u00b1o de almac\u00c3\u00a9n, para N eventos divergentes entre 2 r\u00c3\u00a9plicas (transporte folder).",
+  "bench_source": "crates/core/examples/bench.rs (repo garagedb)",
+  "garagedb_commit": "c289172 (+ integrity guards commit)",
+  "sizes": [
+    50,
+    100,
+    300,
+    1000,
+    3000
+  ],
   "repetitions": 5,
   "hardware": {
-    "cpu": "consumer workstation",
+    "cpu": "consumer workstation (CPU model to be pinned at camera-ready)",
     "ram_gb": 32,
-    "gpu": "AMD Radeon AI PRO R9700 (32 GB) — no usada en este bench",
+    "gpu": "AMD Radeon AI PRO R9700 (32 GB) \u00e2\u20ac\u201d no usada en este bench",
     "os": "Windows 11 Pro 10.0.26100"
   },
-  "toolchain": { "rustc": "1.95.0", "profile": "release" },
-  "notes": "Los benches de replicación no usan seeds ML; las 5 repeticiones dan media±std. Datos de campo y percepción NO están en este paquete: pendientes de despliegue (marcados \\SIM en el paper)."
+  "toolchain": {
+    "rustc": "1.95.0",
+    "profile": "release"
+  },
+  "notes": "Benches de replicacion: 5 tamanos x 5 repeticiones, media\u00b1std. Forecasting: sintetico declarado, rolling-origin one-step, 5 seeds. Datalogger: corpus real, ver semantica en datalogger_analysis.py."
 }
