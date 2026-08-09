@@ -1,0 +1,54 @@
+{
+  "replication": [
+    {
+      "n_events": 50,
+      "t_fold_verify_ms_mean": 2.93,
+      "t_fold_verify_ms_std": 0.14,
+      "t_parse_only_ms_mean": 0.57,
+      "t_parse_only_ms_std": 0.07,
+      "store_bytes_mean": 21465,
+      "bytes_per_event": 429.3,
+      "signature_overhead_factor": 5.1
+    },
+    {
+      "n_events": 100,
+      "t_fold_verify_ms_mean": 5.22,
+      "t_fold_verify_ms_std": 0.53,
+      "t_parse_only_ms_mean": 0.82,
+      "t_parse_only_ms_std": 0.27,
+      "store_bytes_mean": 42928,
+      "bytes_per_event": 429.3,
+      "signature_overhead_factor": 6.4
+    },
+    {
+      "n_events": 300,
+      "t_fold_verify_ms_mean": 14.36,
+      "t_fold_verify_ms_std": 1.03,
+      "t_parse_only_ms_mean": 1.48,
+      "t_parse_only_ms_std": 0.51,
+      "store_bytes_mean": 129177,
+      "bytes_per_event": 430.6,
+      "signature_overhead_factor": 9.7
+    },
+    {
+      "n_events": 1000,
+      "t_fold_verify_ms_mean": 46.57,
+      "t_fold_verify_ms_std": 3.17,
+      "t_parse_only_ms_mean": 2.98,
+      "t_parse_only_ms_std": 0.43,
+      "store_bytes_mean": 431752,
+      "bytes_per_event": 431.8,
+      "signature_overhead_factor": 15.6
+    },
+    {
+      "n_events": 3000,
+      "t_fold_verify_ms_mean": 131.23,
+      "t_fold_verify_ms_std": 4.28,
+      "t_parse_only_ms_mean": 7.24,
+      "t_parse_only_ms_std": 0.55,
+      "store_bytes_mean": 1298673,
+      "bytes_per_event": 432.9,
+      "signature_overhead_factor": 18.1
+    }
+  ]
+}

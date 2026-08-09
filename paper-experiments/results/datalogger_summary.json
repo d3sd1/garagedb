@@ -1,0 +1,24 @@
+{
+  "090826-00_26_TANDA3": {
+    "n_files": 98,
+    "total_mb": 63.0,
+    "total_samples": 917494,
+    "total_logged_s": 123994.0,
+    "channels": 97,
+    "fuel_l": 14.78,
+    "speed_max_kmh": 110.3,
+    "fw": "h723-revC2",
+    "largest_file": "LOG00057.TXT"
+  },
+  "tanda4": {
+    "n_files": 22,
+    "total_mb": 14.0,
+    "total_samples": 176098,
+    "total_logged_s": 23354.0,
+    "channels": 97,
+    "fuel_l": 2.85,
+    "speed_max_kmh": 110.1,
+    "fw": "h723-revC2",
+    "largest_file": "LOG00010.TXT"
+  }
+}

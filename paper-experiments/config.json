@@ -1,0 +1,16 @@
+{
+  "experiment": "replication-microbench",
+  "description": "Convergencia del log GarageDB: fold+verify vs parse-only, tamaño de almacén, para N eventos divergentes entre 2 réplicas (transporte folder).",
+  "bench_source": "D:/garagedb/crates/core/examples/bench.rs",
+  "garagedb_commit": "see repo D:/garagedb",
+  "sizes": [50, 100, 300, 1000, 3000],
+  "repetitions": 5,
+  "hardware": {
+    "cpu": "consumer workstation",
+    "ram_gb": 32,
+    "gpu": "AMD Radeon AI PRO R9700 (32 GB) — no usada en este bench",
+    "os": "Windows 11 Pro 10.0.26100"
+  },
+  "toolchain": { "rustc": "1.95.0", "profile": "release" },
+  "notes": "Los benches de replicación no usan seeds ML; las 5 repeticiones dan media±std. Datos de campo y percepción NO están en este paquete: pendientes de despliegue (marcados \\SIM en el paper)."
+}
