@@ -183,6 +183,8 @@ impl EventStore {
         let keys = self.known_replicas()?;
         let events_root = self.root.join(EVENTS_DIR);
         let mut seen = std::collections::BTreeSet::new();
+        // detección de fork: dos eventos distintos no pueden compartir (replica, seq)
+        let mut seq_owner: BTreeMap<(ReplicaId, u64), EventId> = BTreeMap::new();
 
         if events_root.exists() {
             for replica_dir in read_sorted(&events_root)? {
@@ -211,6 +213,11 @@ impl EventStore {
                             line_no: i + 1,
                             reason: reason.to_string(),
                         };
+                        if ev.v > EVENT_SCHEMA_VERSION {
+                            // A4: nunca proyectar eventos de un esquema más nuevo
+                            report.rejected.push(reject("versión de esquema superior a la de este binario"));
+                            continue;
+                        }
                         if ev.replica != dir_replica {
                             report.rejected.push(reject("réplica del evento no coincide con su shard"));
                             continue;
@@ -222,6 +229,20 @@ impl EventStore {
                         if !verify_event(&ev, vk) {
                             report.rejected.push(reject("firma inválida"));
                             continue;
+                        }
+                        match seq_owner.get(&(ev.replica.clone(), ev.seq)) {
+                            Some(existing) if *existing != ev.id => {
+                                // shard bifurcado (backup restaurado / réplica clonada):
+                                // nunca fusionar silenciosamente
+                                report.rejected.push(reject(
+                                    "fork de réplica: (replica, seq) duplicado con id distinto",
+                                ));
+                                continue;
+                            }
+                            _ => {
+                                seq_owner
+                                    .insert((ev.replica.clone(), ev.seq), ev.id.clone());
+                            }
                         }
                         if seen.insert(ev.id.clone()) {
                             report.events.push(ev);
