@@ -1,0 +1,70 @@
+{
+  "engine": "RapidOCR (PP-OCRv4 ONNX, CPU), tiled 640px overlap 160 upscale 2x",
+  "n_images": 12,
+  "matrix_labels_total": 49,
+  "matrix_labels_unique_text": 48,
+  "mean_conf": 0.732,
+  "mean_latency_s": 8.7,
+  "per_image": [
+    {
+      "image": "site-01.jpg",
+      "matrix_labels": 3,
+      "latency_s": 10.9
+    },
+    {
+      "image": "site-02.jpg",
+      "matrix_labels": 0,
+      "latency_s": 7.6
+    },
+    {
+      "image": "site-03.jpg",
+      "matrix_labels": 0,
+      "latency_s": 7.9
+    },
+    {
+      "image": "site-04.jpg",
+      "matrix_labels": 0,
+      "latency_s": 7.5
+    },
+    {
+      "image": "site-05.jpg",
+      "matrix_labels": 0,
+      "latency_s": 9.4
+    },
+    {
+      "image": "site-06.jpg",
+      "matrix_labels": 0,
+      "latency_s": 9.0
+    },
+    {
+      "image": "site-07.jpg",
+      "matrix_labels": 0,
+      "latency_s": 7.9
+    },
+    {
+      "image": "site-08.jpg",
+      "matrix_labels": 44,
+      "latency_s": 10.3
+    },
+    {
+      "image": "site-09.jpg",
+      "matrix_labels": 0,
+      "latency_s": 8.6
+    },
+    {
+      "image": "site-10.jpg",
+      "matrix_labels": 0,
+      "latency_s": 8.9
+    },
+    {
+      "image": "site-11.jpg",
+      "matrix_labels": 0,
+      "latency_s": 8.4
+    },
+    {
+      "image": "site-12.jpg",
+      "matrix_labels": 2,
+      "latency_s": 8.5
+    }
+  ]
+}

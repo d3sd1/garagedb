@@ -1,0 +1,83 @@
+{
+  "engine": "RapidOCR (PP-OCRv4 ONNX, CPU)",
+  "n_images": 12,
+  "total_detections": 73,
+  "total_matrix_candidates": 28,
+  "unique_matrix_labels": 28,
+  "mean_conf_matrix": 0.766,
+  "mean_latency_s": 0.75,
+  "per_image": [
+    {
+      "image": "site-01.jpg",
+      "detections_total": 2,
+      "matrix_candidates": 1,
+      "latency_s": 1.1
+    },
+    {
+      "image": "site-02.jpg",
+      "detections_total": 0,
+      "matrix_candidates": 0,
+      "latency_s": 0.52
+    },
+    {
+      "image": "site-03.jpg",
+      "detections_total": 3,
+      "matrix_candidates": 0,
+      "latency_s": 0.7
+    },
+    {
+      "image": "site-04.jpg",
+      "detections_total": 2,
+      "matrix_candidates": 0,
+      "latency_s": 0.85
+    },
+    {
+      "image": "site-05.jpg",
+      "detections_total": 12,
+      "matrix_candidates": 0,
+      "latency_s": 0.9
+    },
+    {
+      "image": "site-06.jpg",
+      "detections_total": 8,
+      "matrix_candidates": 0,
+      "latency_s": 0.75
+    },
+    {
+      "image": "site-07.jpg",
+      "detections_total": 4,
+      "matrix_candidates": 0,
+      "latency_s": 0.62
+    },
+    {
+      "image": "site-08.jpg",
+      "detections_total": 34,
+      "matrix_candidates": 27,
+      "latency_s": 0.86
+    },
+    {
+      "image": "site-09.jpg",
+      "detections_total": 3,
+      "matrix_candidates": 0,
+      "latency_s": 0.62
+    },
+    {
+      "image": "site-10.jpg",
+      "detections_total": 4,
+      "matrix_candidates": 0,
+      "latency_s": 0.73
+    },
+    {
+      "image": "site-11.jpg",
+      "detections_total": 1,
+      "matrix_candidates": 0,
+      "latency_s": 0.68
+    },
+    {
+      "image": "site-12.jpg",
+      "detections_total": 0,
+      "matrix_candidates": 0,
+      "latency_s": 0.66
+    }
+  ]
+}

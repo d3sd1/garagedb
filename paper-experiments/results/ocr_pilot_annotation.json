@@ -1,0 +1,17 @@
+{
+  "annotation": "Verificación visual crop a crop del contact sheet (figures/ocr_contact_sheet.pdf) contra el texto OCR. Anotador: autor/operador (verificable re-inspeccionando el contact sheet).",
+  "date": "2026-08-10",
+  "n_candidates": 49,
+  "exact_match_correct": 28,
+  "exact_match_precision": 0.571,
+  "by_confidence": {
+    "tau_0.75": { "n": 23, "correct": 20, "precision": 0.870 },
+    "below_0.75": { "n": 26, "correct": 8, "precision": 0.308 }
+  },
+  "error_structure": {
+    "note": "21 errores: truncación de 1-2 caracteres finales (p.ej. D2-F05 por D2-F05C2, D3-F09 por D3-F09C2) y confusión de caracteres (C→0: D2-F0902 por D2-F09C2; x→0 en etiquetas de tornillería H 4x16→H4016; D→B). Mediana de distancia de edición al texto verdadero: 1. Todos los errores de gaveta quedan a distancia ≤2 de una etiqueta matricial válida — el emparejamiento contra catálogo de la etapa 2 de la cascada está diseñado para absorber exactamente este tipo de fallo.",
+    "truncation": 9,
+    "char_confusion": 12
+  },
+  "recall_note": "No evaluable sobre planos generales sin recuento posicional del muro (lo aportará la ingesta en curso). El contraste full-frame (28) vs tiled (49, +75%) sí es medible y se reporta."
+}
