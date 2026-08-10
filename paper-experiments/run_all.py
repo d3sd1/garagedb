@@ -56,6 +56,10 @@ def main() -> None:
     aggregate()
     subprocess.run([sys.executable, str(HERE / "generate_figures.py")], check=True)
     subprocess.run([sys.executable, str(HERE / "forecast_bench.py")], check=True)
+    subprocess.run([sys.executable, str(HERE / "forecast_extra.py")], check=True)
+    subprocess.run([sys.executable, str(HERE / "aggregate_stores.py")], check=True)
+    if (HERE / "results" / "ocr_pilot_labels.csv").exists():
+        subprocess.run([sys.executable, str(HERE / "ocr_per_label.py")], check=True)
     if os.environ.get("DATALOGGER_DIR"):
         subprocess.run([sys.executable, str(HERE / "datalogger_analysis.py")], check=True)
         subprocess.run([sys.executable, str(HERE / "datalogger_figure.py")], check=True)

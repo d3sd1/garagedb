@@ -6,7 +6,9 @@ JSONL delta-encoded (línea de boot + snapshot completo; después solo canales
 que cambian).
 
 Notas de semántica (ver review R3):
-- `ts` es un contador POR ARRANQUE (por fichero). `logged_s_sum` es la SUMA de
+- `ts` es un contador POR ARRANQUE en DECISEGUNDOS (verificado empiricamente:
+  d(adu_track_lap_time)/d(ts) = 0.1000 exacto sobre 30k intervalos, ver
+  verify_ts_unit.py). Los spans se convierten a segundos dividiendo por 10. `logged_s_sum` es la SUMA de
   los spans por fichero: tiempo total de logging acumulado a través de todos
   los encendidos del equipo, NO la duración de pared de una sesión. Los
   ficheros se acumulan en la SD a través de múltiples encendidos (garaje,
@@ -62,7 +64,7 @@ def parse_file(path: Path) -> dict:
         "file": path.name,
         "bytes": path.stat().st_size,
         "records": n_lines,
-        "span_s": round((t_max - t_min), 1) if t_min is not None else 0.0,
+        "span_s": round((t_max - t_min) / 10.0, 1) if t_min is not None else 0.0,  # ts en decisegundos (verificado en verify_ts_unit.py)
         "keys_total": n_keys_total,
         "channels": len(channels),
         "fuel_l_boot_max": round(fuel_max, 3),

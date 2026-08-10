@@ -1,31 +1,38 @@
 # Experiments — GarageDB (2026-garagedb-industry5-cii)
 
-Tres estudios medidos; ningún dato simulado en el manuscrito.
+Cinco estudios; cuatro medidos sobre artefactos reales del sistema, uno
+(forecasting) sobre demanda sintética declarada. Numeración de tablas/figuras
+= manuscrito v3.4.
 
-## 1. Microbench de replicación (Tabla 4, Figs. 2-3)
-- Fuente: `crates/core/examples/bench.rs` del repo garagedb (commit pinneado en `config.json`).
-- `results/bench_raw.jsonl` (25 muestras) → `results/aggregated_results.json`.
-
-## 2. Benchmark de forecasting intermitente (Tabla 6, Fig. 4)
-- `forecast_bench.py`: 900 series/seed × 5 seeds, rolling-origin one-step,
-  Croston/SBA/TSB/mean/MA(8)/naive, MASE + bias → `results/forecast_results.json`.
-
-## 3. Corpus del datalogger (Tabla 5, Fig. 5)
-- `datalogger_analysis.py` + `datalogger_figure.py` sobre `DATALOGGER_DIR`
-  (corpus privado del autor; ver semántica de `ts`/`fuel` en el docstring).
-- La figura selecciona la ventana EN MOVIMIENTO buscando el pico de velocidad
-  en toda la sesión; falla explícitamente si no hay movimiento.
+| Estudio | Scripts | Resultados |
+|---|---|---|
+| Replicación (Tabla 5, Figs. 3-4) | `bench.rs` (repo, commit en `config.json`) → `run_all.py` | `bench_raw.jsonl`, `aggregated_results.json` |
+| Comparación de almacenes (Tabla 4) | `bench_stores.rs`, `bench_automerge.rs` (repo) + `aggregate_stores.py` | `stores_raw.jsonl`, `automerge_raw.jsonl`, `store_comparison.json` |
+| Forecasting intermitente (Tabla 6, Figs. 5-6) | `forecast_bench.py`, `forecast_extra.py` (α-sweep MASE+bias, Wilcoxon 6 pares Holm m=6, base-stock k·σ) | `forecast_results.json`, `forecast_extra.json` |
+| Corpus datalogger (Tabla 7, Fig. 7) | `datalogger_analysis.py`, `datalogger_figure.py`, `verify_ts_unit.py` (unidad ts=ds verificada) | `datalogger_summary.json` |
+| Piloto OCR (Sec. 6.6) | `ocr_pilot.py`, `ocr_pilot_tiled.py`, `ocr_per_label.py` (exclusión de falsos candidatos + dedupe IoU) | `ocr_pilot*.json`, `ocr_pilot_labels.csv`, `ocr_ground_truth.csv`, `ocr_per_label.json`, `figures/ocr_contact_sheet.pdf` |
 
 ## Reproducción
 
 ```bash
 python -m venv .venv
-.venv/Scripts/pip install -r requirements.txt
-set GARAGEDB_DIR=<ruta al repo garagedb>
-set DATALOGGER_DIR=<ruta al corpus>   # opcional; sin él se omite el estudio 3
-.venv/Scripts/python run_all.py          # los tres estudios end-to-end
-.venv/Scripts/python run_all.py --skip-bench
+.venv/Scripts/pip install -r requirements.txt   # + scipy, rapidocr-onnxruntime
+set GARAGEDB_DIR=<repo garagedb>
+set DATALOGGER_DIR=<corpus Zenodo 10.5281/zenodo.21871901>
+.venv/Scripts/python run_all.py                 # todo end-to-end
 ```
 
-Hardware de referencia: workstation 32 GB RAM, AMD Radeon AI PRO R9700 32 GB
-(no usada en estos benches), Windows 11, Rust 1.95 release, Python 3.13.
+Hardware de referencia: AMD Ryzen 9 5900X, 32 GB RAM, NVMe, Windows 11;
+GPU R9700 no usada en los benches (CPU-only). Todas las series de tiempo de
+los benches Rust se midieron back-to-back en una sesión (2026-08-10).
+
+## Notas de integridad (post-review ronda 2)
+
+- `ts` del datalogger está en **decisegundos** — verificado contra el canal
+  `adu_track_lap_time` (pendiente 0.1000, 30k intervalos, 5 ficheros).
+- El piloto OCR reporta precisión **por etiqueta física** tras excluir 5
+  falsos candidatos del filtro (tornillería `H 4x16`) y fusionar 4 pares por
+  IoU. Ground truth por fila en `ocr_ground_truth.csv`, re-verificable contra
+  `figures/ocr_contact_sheet.pdf`.
+- Automerge se reporta **por dirección de merge** (el harness mide ambas) y
+  con sus bytes/evento (5.3 vs 433 de GarageDB).

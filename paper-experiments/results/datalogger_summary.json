@@ -1,10 +1,23 @@
 {
-  "090826-00_26_TANDA3": {
+  "stint 1": {
+    "n_files": 98,
+    "total_mb": 61.6,
+    "total_records": 891500,
+    "logged_s_sum": 11496.0,
+    "mean_record_rate_hz": 77.5,
+    "channels_union": 97,
+    "mean_channels_per_record": 2.9,
+    "fuel_l_sum_of_boot_max_ESTIMATE": 14.78,
+    "speed_max_kmh": 110.3,
+    "fw": "h723-revC2",
+    "largest_file": "LOG00057.TXT"
+  },
+  "stint 2": {
     "n_files": 98,
     "total_mb": 63.0,
     "total_records": 917494,
-    "logged_s_sum": 123994.0,
-    "mean_record_rate_hz": 7.4,
+    "logged_s_sum": 12399.0,
+    "mean_record_rate_hz": 74.0,
     "channels_union": 97,
     "mean_channels_per_record": 2.8,
     "fuel_l_sum_of_boot_max_ESTIMATE": 14.78,
@@ -12,12 +25,12 @@
     "fw": "h723-revC2",
     "largest_file": "LOG00057.TXT"
   },
-  "tanda4": {
+  "stint 3": {
     "n_files": 22,
     "total_mb": 14.0,
     "total_records": 176098,
-    "logged_s_sum": 23354.0,
-    "mean_record_rate_hz": 7.5,
+    "logged_s_sum": 2335.0,
+    "mean_record_rate_hz": 75.4,
     "channels_union": 97,
     "mean_channels_per_record": 3.5,
     "fuel_l_sum_of_boot_max_ESTIMATE": 2.85,

@@ -164,6 +164,8 @@ def main() -> None:
                 "mase_mean": round(float(np.mean(seed_means)), 3),
                 "mase_std": round(float(np.std(seed_means, ddof=1)), 3),
                 "bias_mean": round(float(np.mean(seed_bias)), 3),
+                "bias_std": round(float(np.std(seed_bias, ddof=1)), 3),
+                "n_series_per_seed": [len(vals)] if quad == "all" else None,
             }
 
     out = HERE / "results" / "forecast_results.json"

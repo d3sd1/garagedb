@@ -12,10 +12,10 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 SRC = Path(os.environ.get("DATALOGGER_DIR", "./datalogger-raw"))
-SESSION = SRC / "090826-00_26_TANDA3"
+SESSION = SRC / "stint 2"
 HERE = Path(__file__).parent
 SPEED_THRESHOLD = 60.0  # km/h: claramente en pista, no maniobra de paddock
-WINDOW_S = 120.0
+WINDOW_TS = 120.0  # unidades de ts = decisegundos -> 12 s reales
 
 plt.rcParams.update({"font.family": "serif", "font.size": 10,
                      "axes.grid": True, "grid.alpha": 0.3,
@@ -61,9 +61,9 @@ if best is None:
 m, path, ts, speed, lean, imax = best
 # ventana centrada en el pico de velocidad
 t_peak = ts[imax]
-t0 = max(ts[0], t_peak - WINDOW_S / 2)
-sel = [i for i, t in enumerate(ts) if t0 <= t <= t0 + WINDOW_S]
-tw = [ts[i] - t0 for i in sel]
+t0 = max(ts[0], t_peak - WINDOW_TS / 2)
+sel = [i for i, t in enumerate(ts) if t0 <= t <= t0 + WINDOW_TS]
+tw = [(ts[i] - t0) / 10.0 for i in sel]  # eje en segundos reales
 sp = [speed[i] for i in sel]
 ln = [lean[i] for i in sel]
 

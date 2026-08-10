@@ -18,160 +18,232 @@
       "croston": {
         "mase_mean": 0.733,
         "mase_std": 0.017,
-        "bias_mean": 0.069
+        "bias_mean": 0.069,
+        "bias_std": 0.025,
+        "n_series_per_seed": null
       },
       "sba": {
         "mase_mean": 0.749,
         "mase_std": 0.016,
-        "bias_mean": -0.196
+        "bias_mean": -0.196,
+        "bias_std": 0.026,
+        "n_series_per_seed": null
       },
       "tsb": {
         "mase_mean": 0.739,
         "mase_std": 0.017,
-        "bias_mean": 0.025
+        "bias_mean": 0.025,
+        "bias_std": 0.023,
+        "n_series_per_seed": null
       },
       "mean": {
         "mase_mean": 0.719,
         "mase_std": 0.014,
-        "bias_mean": 0.041
+        "bias_mean": 0.041,
+        "bias_std": 0.065,
+        "n_series_per_seed": null
       },
       "naive": {
         "mase_mean": 1.025,
         "mase_std": 0.025,
-        "bias_mean": 0.004
+        "bias_mean": 0.004,
+        "bias_std": 0.01,
+        "n_series_per_seed": null
       },
       "ma8": {
         "mase_mean": 0.774,
         "mase_std": 0.019,
-        "bias_mean": 0.017
+        "bias_mean": 0.017,
+        "bias_std": 0.019,
+        "n_series_per_seed": null
       }
     },
     "intermittent": {
       "croston": {
         "mase_mean": 0.968,
         "mase_std": 0.008,
-        "bias_mean": 0.004
+        "bias_mean": 0.004,
+        "bias_std": 0.022,
+        "n_series_per_seed": null
       },
       "sba": {
         "mase_mean": 0.957,
         "mase_std": 0.008,
-        "bias_mean": -0.075
+        "bias_mean": -0.075,
+        "bias_std": 0.022,
+        "n_series_per_seed": null
       },
       "tsb": {
         "mase_mean": 0.964,
         "mase_std": 0.01,
-        "bias_mean": -0.044
+        "bias_mean": -0.044,
+        "bias_std": 0.021,
+        "n_series_per_seed": null
       },
       "mean": {
         "mase_mean": 0.955,
         "mase_std": 0.007,
-        "bias_mean": -0.072
+        "bias_mean": -0.072,
+        "bias_std": 0.03,
+        "n_series_per_seed": null
       },
       "naive": {
         "mase_mean": 1.066,
         "mase_std": 0.012,
-        "bias_mean": -0.006
+        "bias_mean": -0.006,
+        "bias_std": 0.006,
+        "n_series_per_seed": null
       },
       "ma8": {
         "mase_mean": 0.975,
         "mase_std": 0.012,
-        "bias_mean": -0.01
+        "bias_mean": -0.01,
+        "bias_std": 0.016,
+        "n_series_per_seed": null
       }
     },
     "erratic": {
       "croston": {
         "mase_mean": 0.791,
         "mase_std": 0.022,
-        "bias_mean": 0.479
+        "bias_mean": 0.479,
+        "bias_std": 0.246,
+        "n_series_per_seed": null
       },
       "sba": {
         "mase_mean": 0.773,
         "mase_std": 0.021,
-        "bias_mean": -0.129
+        "bias_mean": -0.129,
+        "bias_std": 0.234,
+        "n_series_per_seed": null
       },
       "tsb": {
         "mase_mean": 0.788,
         "mase_std": 0.022,
-        "bias_mean": 0.335
+        "bias_mean": 0.335,
+        "bias_std": 0.239,
+        "n_series_per_seed": null
       },
       "mean": {
         "mase_mean": 0.765,
         "mase_std": 0.024,
-        "bias_mean": 0.363
+        "bias_mean": 0.363,
+        "bias_std": 0.192,
+        "n_series_per_seed": null
       },
       "naive": {
         "mase_mean": 1.038,
         "mase_std": 0.028,
-        "bias_mean": 0.11
+        "bias_mean": 0.11,
+        "bias_std": 0.104,
+        "n_series_per_seed": null
       },
       "ma8": {
         "mase_mean": 0.823,
         "mase_std": 0.024,
-        "bias_mean": 0.29
+        "bias_mean": 0.29,
+        "bias_std": 0.233,
+        "n_series_per_seed": null
       }
     },
     "lumpy": {
       "croston": {
         "mase_mean": 1.034,
         "mase_std": 0.045,
-        "bias_mean": 0.208
+        "bias_mean": 0.208,
+        "bias_std": 0.216,
+        "n_series_per_seed": null
       },
       "sba": {
         "mase_mean": 1.013,
         "mase_std": 0.045,
-        "bias_mean": 0.016
+        "bias_mean": 0.016,
+        "bias_std": 0.215,
+        "n_series_per_seed": null
       },
       "tsb": {
         "mase_mean": 1.019,
         "mase_std": 0.046,
-        "bias_mean": -0.031
+        "bias_mean": -0.031,
+        "bias_std": 0.199,
+        "n_series_per_seed": null
       },
       "mean": {
         "mase_mean": 0.992,
         "mase_std": 0.04,
-        "bias_mean": -0.021
+        "bias_mean": -0.021,
+        "bias_std": 0.247,
+        "n_series_per_seed": null
       },
       "naive": {
         "mase_mean": 1.204,
         "mase_std": 0.067,
-        "bias_mean": -0.005
+        "bias_mean": -0.005,
+        "bias_std": 0.064,
+        "n_series_per_seed": null
       },
       "ma8": {
         "mase_mean": 1.094,
         "mase_std": 0.06,
-        "bias_mean": 0.011
+        "bias_mean": 0.011,
+        "bias_std": 0.08,
+        "n_series_per_seed": null
       }
     },
     "all": {
       "croston": {
         "mase_mean": 0.945,
         "mase_std": 0.022,
-        "bias_mean": 0.13
+        "bias_mean": 0.13,
+        "bias_std": 0.106,
+        "n_series_per_seed": [
+          900
+        ]
       },
       "sba": {
         "mase_mean": 0.934,
         "mase_std": 0.022,
-        "bias_mean": -0.065
+        "bias_mean": -0.065,
+        "bias_std": 0.111,
+        "n_series_per_seed": [
+          900
+        ]
       },
       "tsb": {
         "mase_mean": 0.938,
         "mase_std": 0.023,
-        "bias_mean": -0.002
+        "bias_mean": -0.002,
+        "bias_std": 0.097,
+        "n_series_per_seed": [
+          900
+        ]
       },
       "mean": {
         "mase_mean": 0.919,
         "mase_std": 0.02,
-        "bias_mean": -0.003
+        "bias_mean": -0.003,
+        "bias_std": 0.114,
+        "n_series_per_seed": [
+          900
+        ]
       },
       "naive": {
         "mase_mean": 1.113,
         "mase_std": 0.034,
-        "bias_mean": 0.005
+        "bias_mean": 0.005,
+        "bias_std": 0.032,
+        "n_series_per_seed": [
+          900
+        ]
       },
       "ma8": {
         "mase_mean": 0.98,
         "mase_std": 0.03,
-        "bias_mean": 0.023
+        "bias_mean": 0.023,
+        "bias_std": 0.04,
+        "n_series_per_seed": [
+          900
+        ]
       }
     }
   },

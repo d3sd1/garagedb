@@ -1,0 +1,28 @@
+{
+  "detections_total": 49,
+  "filter_false_positives_non_matrix": 5,
+  "filter_fp_texts": [
+    "H4016",
+    "H4020",
+    "H420",
+    "H435"
+  ],
+  "matrix_detections": 44,
+  "physical_labels_after_iou_dedupe": 40,
+  "iou_merged_groups": 4,
+  "per_label_exact_correct": 26,
+  "per_label_precision": 0.65,
+  "tau_0.75": {
+    "n": 22,
+    "correct": 19,
+    "precision": 0.864
+  },
+  "below_0.75": {
+    "n": 18,
+    "correct": 7,
+    "precision": 0.389
+  },
+  "per_image": {
+    "site-08.jpg": 40
+  }
+}

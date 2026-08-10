@@ -2,53 +2,53 @@
   "replication": [
     {
       "n_events": 50,
-      "t_fold_verify_ms_mean": 2.93,
-      "t_fold_verify_ms_std": 0.14,
-      "t_parse_only_ms_mean": 0.57,
+      "t_fold_verify_ms_mean": 3.12,
+      "t_fold_verify_ms_std": 0.24,
+      "t_parse_only_ms_mean": 0.59,
       "t_parse_only_ms_std": 0.07,
       "store_bytes_mean": 21465,
       "bytes_per_event": 429.3,
-      "signature_overhead_factor": 5.1
+      "us_per_event_verify": 62.4
     },
     {
       "n_events": 100,
-      "t_fold_verify_ms_mean": 5.22,
-      "t_fold_verify_ms_std": 0.53,
-      "t_parse_only_ms_mean": 0.82,
-      "t_parse_only_ms_std": 0.27,
+      "t_fold_verify_ms_mean": 5.31,
+      "t_fold_verify_ms_std": 0.6,
+      "t_parse_only_ms_mean": 0.72,
+      "t_parse_only_ms_std": 0.11,
       "store_bytes_mean": 42928,
       "bytes_per_event": 429.3,
-      "signature_overhead_factor": 6.4
+      "us_per_event_verify": 53.1
     },
     {
       "n_events": 300,
-      "t_fold_verify_ms_mean": 14.36,
-      "t_fold_verify_ms_std": 1.03,
-      "t_parse_only_ms_mean": 1.48,
-      "t_parse_only_ms_std": 0.51,
+      "t_fold_verify_ms_mean": 14.78,
+      "t_fold_verify_ms_std": 1.66,
+      "t_parse_only_ms_mean": 1.36,
+      "t_parse_only_ms_std": 0.29,
       "store_bytes_mean": 129177,
       "bytes_per_event": 430.6,
-      "signature_overhead_factor": 9.7
+      "us_per_event_verify": 49.3
     },
     {
       "n_events": 1000,
-      "t_fold_verify_ms_mean": 46.57,
-      "t_fold_verify_ms_std": 3.17,
-      "t_parse_only_ms_mean": 2.98,
-      "t_parse_only_ms_std": 0.43,
+      "t_fold_verify_ms_mean": 48.03,
+      "t_fold_verify_ms_std": 3.39,
+      "t_parse_only_ms_mean": 2.99,
+      "t_parse_only_ms_std": 0.76,
       "store_bytes_mean": 431752,
       "bytes_per_event": 431.8,
-      "signature_overhead_factor": 15.6
+      "us_per_event_verify": 48.0
     },
     {
       "n_events": 3000,
-      "t_fold_verify_ms_mean": 131.23,
-      "t_fold_verify_ms_std": 4.28,
-      "t_parse_only_ms_mean": 7.24,
-      "t_parse_only_ms_std": 0.55,
+      "t_fold_verify_ms_mean": 148.97,
+      "t_fold_verify_ms_std": 20.74,
+      "t_parse_only_ms_mean": 9.17,
+      "t_parse_only_ms_std": 1.92,
       "store_bytes_mean": 1298673,
       "bytes_per_event": 432.9,
-      "signature_overhead_factor": 18.1
+      "us_per_event_verify": 49.7
     }
   ]
 }
