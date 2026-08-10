@@ -59,3 +59,11 @@ garagedb --store D:/garaje-data doctor   # firmas, integridad, divergencia state
 | 8-10: herramienta/shadow boards, ingesta por visión, mapa 2D | pendiente |
 
 Diseño completo y decisiones: ver spec del proyecto (repo de investigación).
+
+## Datos
+
+El corpus de telemetría del día de circuito usado en el paper (caracterización
+del escenario desconectado) está publicado en Zenodo:
+**DOI [10.5281/zenodo.21871901](https://doi.org/10.5281/zenodo.21871901)**.
+Los scripts de análisis viven en `paper-experiments/` (`datalogger_analysis.py`,
+`datalogger_figure.py`; apunta `DATALOGGER_DIR` al corpus descargado).
